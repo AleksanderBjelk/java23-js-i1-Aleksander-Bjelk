@@ -10,33 +10,37 @@
 </head>
 <body>
     <div class="container">
-        <div class="totalPoints">
-        <form action="">
-            <h2 class="playerName">
-                Totala poäng:
-                <p>Player 1</p>
-            </h2>
-        </div>
-        <div class="currentPoints">
-            <p>Poäng: </p>
-            <p class="countCurrentPoints">0</p>
-        </div>
-        </form>
-
-        <div class="totalPoints">
-            <form action="">
+        <form class="player player_1 active"></form>
+            <div class="totalPoints">
                 <h2 class="playerName">
-                    Totala poäng:
-                    <p>Player 2</p>
+                    <p>Spelare 1</p>
+                    Totala poäng:  
                 </h2>
+                <p class="showTotalPoints" id="tPoints_P1">11</p>
             </div>
-            <div class="currentPoints">
+                <div class="currentPoints" id="currentPoints_P1">
+                    <p>Poäng: </p>
+                    <p class="countCurrentPoints">0</p>
+                </div>
+        </form>
+    
+
+        <form class="player player_2">
+            <div class="totalPoints">
+                <h2 class="playerName">
+                    <p>Spelare 2</p>
+                    Totala poäng:
+                </h2>
+                <p class="showTotalPoints" id="tPoints_P2">22</p>
+            </div>
+            <div class="currentPoints" id="currentPoints_P2">
                 <p>Poäng: </p>
-                <p class="countCurrentPoints">0</p>
+                <p class="countCurrentPoints" id="cPoints">0</p>
             </div>
-            </form>
+        </form>
     </div>
-    <button class="button" id="startButton">Starta spel</button>
+
+    <button class="button" id="rollDice">Rulla tärningen</button>
     <button class="button" id="freezeButton">Frys dina poäng</button>
     <p class="currentRounds">Antal rundor: </p>
     
