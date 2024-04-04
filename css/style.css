@@ -1,4 +1,68 @@
 body {
-margin: 0;
-padding: 0;
+    font-family: fantasy;
+    background-color: #1b895f;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.player {
+    width: 30%;
+    padding: 40px;
+    border-radius: 5px;
+}
+
+.player_1 {
+    background-color: white; 
+}
+
+.player_2 {
+    background-color: black; 
+    color: white; 
+}
+
+.totalPoints {
+    margin-bottom: 10px;
+}
+
+.playerName {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.currentPoints {
+    font-size: 15px;
+}
+
+.button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    transition: background-color 0.4s;
+    font-family: fantasy;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+
+.currentRounds {
+    font-size: 16px;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
 }
