@@ -8,42 +8,51 @@
     <script src="js/script.js" defer></script>
     <title>Pig game!</title>
 </head>
+
 <body>
-    <h1 class="center">Pig Game</h1>
+    <h1 class="center"> Pig Game</h1>
     <div class="container">
-        <form class="player player_1 active">
+        <!-- Form och allt som har med spelare 1 att göra -->
+        <form class="player player_0 p_active">
             <div class="totalPoints">
                 <h2 class="playerName">
-                    <p>Spelare 1</p>
+                    <p id="playerNameDisplay_0" >Spelare 1</p>
                     Totala poäng:  
                 </h2>
-                <p class="showTotalPoints" id="tPoints_P1">11</p>
+                <p class="showTotalPoints" id="tPoints_P0">0</p>
             </div>
-                <div class="currentPoints" id="currentPoints_P1">
+                <div class="currentPoints" >
                     <p>Poäng: </p>
-                    <p class="countCurrentPoints">0</p>
+                    <p class="countCurrentPoints" id="currentPoints_P0" >0</p>
+                    <input type="text" id="playerNameInput_0" placeholder="Spelare 1 Namn">
                 </div>
         </form>
     
+        <!-- Bild på tärningen som byts ut men startar med tärningen som visar 1 -->
+        <img src="images/dice-1.png" class="dice"/>
 
-        <form class="player player_2">
+        <!-- Form för spelare 2 -->
+        <form class="player player_1">
             <div class="totalPoints">
                 <h2 class="playerName">
-                    <p>Spelare 2</p>
+                    <p id="playerNameDisplay_1">Spelare 2</p>
                     Totala poäng:
                 </h2>
-                <p class="showTotalPoints" id="tPoints_P2">22</p>
+                <p class="showTotalPoints" id="tPoints_P1">0</p>
             </div>
-            <div class="currentPoints" id="currentPoints_P2">
+            <div class="currentPoints">
                 <p>Poäng: </p>
-                <p class="countCurrentPoints" id="cPoints">0</p>
+                <p class="countCurrentPoints" id="currentPoints_P1">0</p>
+                <input type="text" id="playerNameInput_1" placeholder="Spelare 2 Namn">
             </div>
         </form>
     </div>
-
-    <button class="button" id="rollDice">Rulla tärningen</button>
-    <button class="button" id="freezeButton">Frys dina poäng</button>
-    <p class="currentRounds">Antal rundor: 0</p>
+    
+        <!-- Knappar för att rulla tärning, frysa poäng och starta en ny omgång -->
+        <button class="button" id="rollDice">Rulla tärningen</button>
+        <button class="button" id="freezeButton">Frys dina poäng</button>
+        <button class="button" id="newRoundButton">Ny runda</button>
+        <p class="currentRounds">Antal rundor: 0</p>
     
 </body>
 </html>
