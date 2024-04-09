@@ -25,8 +25,9 @@ let roundCount = 0;
 //hantera tärningens funktion:
 btnRoll.addEventListener("click", function () {
     if (playing) {
-        //generar en slumpmässig siffra melan 1-6 (notering: math.trunc +1 bättre?)
-        const dice = Math.ceil(Math.random() * 6);
+        //generar en slumpmässig siffra melan 1-6
+        const dice = Math.floor(Math.random() * 6)+1;
+        console.log(dice);
 
         //Ändrar bild utifrån vad vi får från det generade nummret (bilderna har siffror i namnet)
         diceEl.src = `images/dice-${dice}.png`;
