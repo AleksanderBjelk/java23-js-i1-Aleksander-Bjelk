@@ -1,10 +1,12 @@
 //alla variabler som kommer användas
-const player1El = document.querySelector(".player_0");
-const player2El = document.querySelector(".player_1");
-const currentPointsP1El = document.getElementById("currentPoints_P0");
-const currentPointsP2El = document.getElementById("currentPoints_P1");
-const totalPointsP1El = document.getElementById("tPoints_P0");
-const totalPointsP2El = document.getElementById("tPoints_P1");
+const player0El = document.querySelector(".player_0");
+const player1El = document.querySelector(".player_1");
+const currentPointsP0El = document.getElementById("currentPoints_P0");
+const currentPointsP1El = document.getElementById("currentPoints_P1");
+const totalPointsP0El = document.getElementById("tPoints_P0");
+const totalPointsP1El = document.getElementById("tPoints_P1");
+const turnCountNumberP0 = document.querySelector(".currentTurnsP0");
+const turnCountNumberP1 = document.querySelector(".currentTurnsP1");
 
 const diceEl = document.querySelector(".dice");
 const btnNew = document.getElementById("newRoundButton");
@@ -21,12 +23,14 @@ let currentScore;
 let activePlayer;
 let playing;
 let roundCount = 0;
+let turnCountP0 = 0;
+let turnCountP1 = 0;
 
 //hantera tärningens funktion:
 btnRoll.addEventListener("click", function () {
     if (playing) {
         //generar en slumpmässig siffra melan 1-6
-        const dice = Math.floor(Math.random() * 6)+1;
+        const dice = Math.floor(Math.random() * 6) + 1;
         console.log(dice);
 
         //Ändrar bild utifrån vad vi får från det generade nummret (bilderna har siffror i namnet)
@@ -52,8 +56,19 @@ const switchPlayer = function () {
     document.getElementById(`currentPoints_P${activePlayer}`).textContent = 0;
     currentScore = 0;
     activePlayer = activePlayer === 0 ? 1 : 0;
+    player0El.classList.toggle("playerActive");
     player1El.classList.toggle("playerActive");
-    player2El.classList.toggle("playerActive");
+    if (activePlayer === 0) {
+        turnCountP0++;
+    } else {
+        turnCountP1++;
+    }
+    document.querySelector(
+        ".currentTurnsP0"
+    ).textContent = `Antal turer: ${turnCountP0}`;
+    document.querySelector(
+        ".currentTurnsP1"
+    ).textContent = `Antal turer: ${turnCountP1}`;
 };
 
 //Hanterar sparandet av poängen
@@ -94,18 +109,27 @@ const startNewRound = function () {
     scores = [0, 0];
     currentScore = 0;
     activePlayer = 0;
+    turnCountP0 = 1;
+    turnCountP1 = 0;
     playing = true;
 
     //nollställer alla visuella element
+    totalPointsP0El.textContent = 0;
     totalPointsP1El.textContent = 0;
-    totalPointsP2El.textContent = 0;
+    currentPointsP0El.textContent = 0;
     currentPointsP1El.textContent = 0;
-    currentPointsP2El.textContent = 0;
 
+    player0El.classList.remove("winnerPlayer");
     player1El.classList.remove("winnerPlayer");
-    player2El.classList.remove("winnerPlayer");
-    player1El.classList.add("playerActive");
-    player2El.classList.remove("playerActive");
+    player0El.classList.add("playerActive");
+    player1El.classList.remove("playerActive");
+
+    document.querySelector(
+        ".currentTurnsP0"
+    ).textContent = `Antal turer: ${turnCountP0}`;
+    document.querySelector(
+        ".currentTurnsP1"
+    ).textContent = `Antal turer: ${turnCountP1}`;
     document.querySelector(
         ".currentRounds"
     ).textContent = `Antal rundor: ${roundCount}`;
@@ -116,17 +140,26 @@ const init = function () {
     scores = [0, 0];
     currentScore = 0;
     activePlayer = 0;
+    turnCountP0 = 1;
+    turnCountP1 = 0;
     playing = true;
 
+    totalPointsP0El.textContent = 0;
     totalPointsP1El.textContent = 0;
-    totalPointsP2El.textContent = 0;
+    currentPointsP0El.textContent = 0;
     currentPointsP1El.textContent = 0;
-    currentPointsP2El.textContent = 0;
 
+    player0El.classList.remove("winnerPlayer");
     player1El.classList.remove("winnerPlayer");
-    player2El.classList.remove("winnerPlayer");
-    player1El.classList.add("playerActive");
-    player2El.classList.remove("playerActive");
+    player0El.classList.add("playerActive");
+    player1El.classList.remove("playerActive");
+
+    document.querySelector(
+        ".currentTurnsP0"
+    ).textContent = `Antal turer: ${turnCountP0}`;
+    document.querySelector(
+        ".currentTurnsP1"
+    ).textContent = `Antal turer: ${turnCountP1}`;
 
     document.querySelector(
         ".currentRounds"
